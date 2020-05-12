@@ -11,3 +11,4 @@ for i in 1..10
   Design.create(title: Faker::Books::Lovecraft.deity, user_id: 1, collection_id: 1)
 end
 
+
