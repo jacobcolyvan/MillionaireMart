@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   # edit/update
   delete "/collections/:id", to: "collections#destroy"
 
-  get "/collections/:id/new", to: "designs#new", as: "new_design"
-  post "/collections/:id", to: "designs#create"
-  delete "/collections/:id/:id", to: "designs#destroy"
-  
+
+  get "/designs/new", to: "designs#new", as: "new_design"
+  post "/designs/:id", to: "designs#create" 
+  delete "/designs/:id", to: "designs#destroy"
 end
