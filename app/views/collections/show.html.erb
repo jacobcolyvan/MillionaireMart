@@ -1,0 +1,17 @@
+<h1><%= @collection.title %></h1>
+<p><%= @collection.description %></p>
+<br>
+
+<ul>
+  <% for design in @designs %>
+    <li>
+      <%= design.title %>
+      <%# link to design page %>
+    </li>
+  <% end %>
+</ul>
+<br>
+
+<%# add design %>
+<%= link_to "Edit collection", edit_collection_path%>
+<%= link_to "Return to collections", collections_path%>

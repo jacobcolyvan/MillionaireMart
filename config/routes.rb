@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  # not currently an active route
   get "/", to: "pages#home", as: "root"
 
   get "/collections", to: "collections#index", as: "collections"
@@ -9,6 +10,10 @@ Rails.application.routes.draw do
   get "/collections/:id", to: "collections#show", as: "collection"
 
   # edit/update
+  get "/collections/:id/edit", to: "collections#edit", as: "edit_collection"
+  put "/collections/:id", to: "collections#update"
+  patch "/collections/:id", to: "collections#update"
+
   delete "/collections/:id", to: "collections#destroy"
 
 

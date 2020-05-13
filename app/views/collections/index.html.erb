@@ -1,6 +1,18 @@
-<h1>COLLECTIONS<h1>
+<h1>COLLECTIONS</h1>
 
 <%# if user has admin rights %>
-<%= link_to "Sell Instrument", new_listing_path%>
+<%= link_to "Add collection", new_collection_path%>
+
+<br>
+<ul>
+  <% for collection in @collections %>
+    <li>
+      <%= link_to "#{collection.title}", collection_path(collection.id) %>
+    </li>
+  <% end %>
+</ul>
+<br>
+
+
 
 
