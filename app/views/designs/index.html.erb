@@ -1,0 +1,14 @@
+<h1>All Designs</h1>
+
+<%= link_to "Add Design", new_des_path%>
+
+<br>
+<ul>
+  <% for design in @designs %>
+    <li>
+      <%= link_to "#{design.title}", design_path(design.id) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Return to collections", collections_path%>

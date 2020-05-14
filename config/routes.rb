@@ -16,8 +16,10 @@ Rails.application.routes.draw do
 
 
   resources :designs
+  get "/designs", to: "designs#index", as: "des"
   get "/designs/new", to: "designs#new", as: "new_des"
   post "/designs/:id", to: "designs#create"
+  get "/designs/:id", to: "designs#show", as: "des"
 
   get "/designs/:id/edit", to: "collections#edit", as: "edit_des"
   put "/designs/:id", to: "collections#update"
