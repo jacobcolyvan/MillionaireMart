@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  # not currently an active route
   get "/", to: "pages#home", as: "root"
 
   get "/collections", to: "collections#index", as: "collections"
@@ -13,11 +12,15 @@ Rails.application.routes.draw do
   get "/collections/:id/edit", to: "collections#edit", as: "edit_collection"
   put "/collections/:id", to: "collections#update"
   patch "/collections/:id", to: "collections#update"
-
   delete "/collections/:id", to: "collections#destroy"
 
 
-  get "/designs/new", to: "designs#new", as: "new_design"
-  post "/designs/:id", to: "designs#create" 
+  resources :designs
+  get "/designs/new", to: "designs#new", as: "new_des"
+  post "/designs/:id", to: "designs#create"
+
+  get "/designs/:id/edit", to: "collections#edit", as: "edit_des"
+  put "/designs/:id", to: "collections#update"
+  patch "/designs/:id", to: "collections#update"
   delete "/designs/:id", to: "designs#destroy"
 end

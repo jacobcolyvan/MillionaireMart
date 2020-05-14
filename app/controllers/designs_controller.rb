@@ -1,12 +1,12 @@
-class DesignController < ApplicationController
+class DesignsController < ApplicationController
   def new
     set_collections
-    @collection = Collection.new
+    @design = Design.new
   end
 
   def create
-    @collection = current_user.collection.create(collection_params)
-    if @collection.errors.any?
+    @design = current_user.design.create(design_params)
+    if @design.errors.any?
       render "new"
     else 
       redirect_to collections_path
@@ -14,9 +14,10 @@ class DesignController < ApplicationController
   end
 
   def edit
-    @collection = current_user.collection.find_by_id(params["id"])
+    set_collections
+    @design = current_user.design.find_by_id(params["id"])
 
-    if @collection 
+    if @design 
         render("edit")
     else
         redirect_to collections_path
@@ -24,11 +25,11 @@ class DesignController < ApplicationController
   end
 
   def update
-    @collection = current_user.collection.find_by_id(params["id"])
+    @design = current_user.design.find_by_id(params["id"])
 
-    if @collection 
-        @collection.update(collection_params)
-        if @collection.errors.any?
+    if @design 
+        @design.update(design_params)
+        if @design.errors.any?
             render "edit"
         else
             redirect_to collections_path
@@ -39,18 +40,17 @@ class DesignController < ApplicationController
   end
 
   def destroy
-    @collection = current_user.collections.find_by_id(params["id"])
+    @design = current_user.designs.find_by_id(params["id"])
 
-    if @collection
-        @collection.destroy
+    if @design
+        @design.destroy
     end
     redirect_to collections_path
   end
 
   private
-  def collection_params
-      # params.require(:collection).permit(:title, :price, :description, :picture)
-      params.require(:collection).permit(:title, :description)
+  def design_params
+      params.require(:design).permit(:title, :description, :collection_id, :picture)
   end  
 
   def set_collections

@@ -6,12 +6,15 @@
   <% for design in @designs %>
     <li>
       <%= design.title %>
+      <%= image_tag design.picture if design.picture.attached? %>
+      <%= link_to "Edit", edit_des_path(design.id)%>
       <%# link to design page %>
     </li>
   <% end %>
 </ul>
 <br>
 
-<%# add design %>
+<%# add design %> 
+<%= link_to "Add design", new_des_path%>
 <%= link_to "Edit collection", edit_collection_path%>
 <%= link_to "Return to collections", collections_path%>
