@@ -7,8 +7,6 @@ class CollectionsController < ApplicationController
 
   def new
     @collection = Collection.new
-
-    
   end
 
   def create
