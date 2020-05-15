@@ -6,8 +6,17 @@
 <br>
 <ul>
   <% for collection in @collections %>
-    <li>
+    <li class="card">
       <%= link_to "#{collection.title}", collection_path(collection.id) %>
+      <%= image_tag collection.picture if collection.picture.attached? %>
+      <% if current_user && current_user.id == collection.user_id %>
+        <%= form_with model: collection, local: true, method: "delete" do |form| %>
+          <div class="modify-icons">
+            <%= submit_tag "delete", class: "icon" %>
+            <%= link_to "Edit", edit_collection_path(collection.id), class: "icon" %>
+          </div>
+        <% end %>
+      <% end %>
     </li>
   <% end %>
 </ul>

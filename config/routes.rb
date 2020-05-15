@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   post "/designs/:id", to: "designs#create"
   get "/designs/:id", to: "designs#show", as: "desi"
 
-  get "/designs/:id/edit", to: "collections#edit", as: "edit_des"
-  put "/designs/:id", to: "collections#update"
-  patch "/designs/:id", to: "collections#update"
+  get "/designs/:id/edit", to: "designs#edit", as: "edit_des"
+  put "/designs/:id", to: "designs#update"
+  patch "/designs/:id", to: "designs#update"
   delete "/designs/:id", to: "designs#destroy"
 end

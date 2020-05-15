@@ -4,10 +4,13 @@
 
 <ul>
   <% for design in @designs %>
-    <li>
+    <li class="card">
       <%= design.title %>
       <%= image_tag design.picture if design.picture.attached? %>
-      <%= link_to "Edit", edit_des_path(design.id)%>
+
+      <% if current_user && current_user.id == design.user_id %>
+        <%= link_to "Edit", edit_des_path(design.id) %>
+      <% end %>
       <%# link to design page %>
     </li>
   <% end %>

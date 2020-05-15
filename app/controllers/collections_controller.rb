@@ -1,5 +1,9 @@
 class CollectionsController < ApplicationController
   # before_action :authenticate_user!
+  
+  before_action :set_user_collection, only: [:edit, :update, :destroy]
+  before_action :set_collection, only: [:show]
+
   def index 
     @collections = Collection.all
   end
@@ -19,11 +23,11 @@ class CollectionsController < ApplicationController
 
   def show
     @collection = Collection.find(params["id"])
-    @designs = @collection.design
+    @designs = @collection.designs
   end
 
   def edit
-    @collection = current_user.collection.find_by_id(params["id"])
+    @collection = current_user.collections.find_by_id(params["id"])
 
     if @collection 
         render("edit")
@@ -33,7 +37,7 @@ class CollectionsController < ApplicationController
   end
 
   def update
-    @collection = current_user.collection.find_by_id(params["id"])
+    @collection = current_user.collections.find_by_id(params["id"])
 
     if @collection 
         @collection.update(collection_params)
@@ -48,16 +52,27 @@ class CollectionsController < ApplicationController
   end
 
   def destroy
-    @collection = current_user.collections.find_by_id(params["id"])
-
-    if @collection
-        @collection.destroy
-    end
+    Collection.find(params[:id]).destroy
     redirect_to collections_path
   end
 
   private
   def collection_params
-      params.require(:collection).permit(:title, :description, :picture)
+    # TODO: add require picture
+      params.require(:collection).permit(:title, :description)
+  end
+
+  def set_collection
+    @collection = Collection.find(params[:id])
+  end
+
+  def set_user_collection
+    id = params[:id]
+    @collection = current_user.collections.find_by_id(id) if current_user
+  
+    if @collection == nil
+        redirect_to collections_path
+    end
   end
 end
+

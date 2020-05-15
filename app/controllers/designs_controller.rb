@@ -1,4 +1,7 @@
 class DesignsController < ApplicationController
+  before_action :set_user_design, only: [:edit, :update, :destroy]
+  before_action :set_design, only: [:show]
+
   def index
     @designs = Design.all
   end
@@ -13,7 +16,7 @@ class DesignsController < ApplicationController
   end
 
   def create
-    @design = current_user.design.create(design_params)
+    @design = current_user.designs.create(design_params)
     if @design.errors.any?
       render "new"
     else 
@@ -23,7 +26,7 @@ class DesignsController < ApplicationController
 
   def edit
     set_collections
-    @design = current_user.design.find_by_id(params["id"])
+    @design = current_user.designs.find_by_id(params["id"])
 
     if @design 
         render("edit")
@@ -33,7 +36,7 @@ class DesignsController < ApplicationController
   end
 
   def update
-    @design = current_user.design.find_by_id(params["id"])
+    @design = current_user.designs.find_by_id(params["id"])
 
     if @design 
         @design.update(design_params)
@@ -63,5 +66,18 @@ class DesignsController < ApplicationController
 
   def set_collections
     @collections = Collection.all
+  end
+
+  def set_design    
+    @design= Design.find(params[:id])
+  end
+
+  def set_user_design    
+    id = params[:id]
+    @design = current_user.designs.find_by_id(id) if current_user
+  
+    if @design == nil
+        redirect_to collections_path
+    end
   end
 end
