@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   get "/", to: "pages#home", as: "root"
+  get "/about", to: "pages#about", as: "about"
 
   get "/collections", to: "collections#index", as: "collections"
   get "/collections/new", to: "collections#new", as: "new_collection"
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   get "/designs", to: "designs#index", as: "des"
   get "/designs/new", to: "designs#new", as: "new_des"
   post "/designs/:id", to: "designs#create"
-  get "/designs/:id", to: "designs#show", as: "des"
+  get "/designs/:id", to: "designs#show", as: "desi"
 
   get "/designs/:id/edit", to: "collections#edit", as: "edit_des"
   put "/designs/:id", to: "collections#update"

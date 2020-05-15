@@ -1,0 +1,14 @@
+<div class="nav">
+  <%= link_to "Home", root_path%>
+  <%= link_to "Collections", collections_path%>
+  <%= link_to "About/Contact", about_path%>
+  <%# shopping cart %>
+  
+  <div class="signed">
+    <% if user_signed_in? %>
+      <%= link_to "logout", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "login / sign-up", new_user_session_path %>
+    <% end %>
+  </div>
+</div>

@@ -17,4 +17,20 @@
  * {
    background: #16202C;
    color: #fff;
+  //  list-style: none;
+ }
+
+ .mainContainer {
+   width: 50%;
+   margin: auto;
+   background-color: #414D5B;
+   padding: 5px;
+ }
+
+ .mainContainer * {
+  background-color: #414D5B;
+ }
+
+ img {
+   width: 200px;
  }
