@@ -1,6 +1,5 @@
 class CollectionsController < ApplicationController
   # before_action :authenticate_user!
-  
   before_action :set_user_collection, only: [:edit, :update, :destroy]
   before_action :set_collection, only: [:show]
 
@@ -59,7 +58,7 @@ class CollectionsController < ApplicationController
   private
   def collection_params
     # TODO: add require picture
-      params.require(:collection).permit(:title, :description)
+      params.require(:collection).permit(:title, :description, :picture)
   end
 
   def set_collection

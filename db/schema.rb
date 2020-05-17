@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_14_044830) do
+ActiveRecord::Schema.define(version: 2020_05_17_072445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,15 @@ ActiveRecord::Schema.define(version: 2020_05_14_044830) do
     t.index ["user_id"], name: "index_designs_on_user_id"
   end
 
+  create_table "shopping_carts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "design_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["design_id"], name: "index_shopping_carts_on_design_id"
+    t.index ["user_id"], name: "index_shopping_carts_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -73,6 +82,8 @@ ActiveRecord::Schema.define(version: 2020_05_14_044830) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -83,4 +94,6 @@ ActiveRecord::Schema.define(version: 2020_05_14_044830) do
   add_foreign_key "collections", "users"
   add_foreign_key "designs", "collections"
   add_foreign_key "designs", "users"
+  add_foreign_key "shopping_carts", "designs"
+  add_foreign_key "shopping_carts", "users"
 end
