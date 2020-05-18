@@ -12,7 +12,7 @@ class CollectionsController < ApplicationController
   end
 
   def create
-    @collection = current_user.collection.create(collection_params)
+    @collection = current_user.collections.create(collection_params)
     if @collection.errors.any?
       render "new"
     else 

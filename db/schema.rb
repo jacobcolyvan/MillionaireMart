@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_17_072445) do
+ActiveRecord::Schema.define(version: 2020_05_18_120011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,15 +36,6 @@ ActiveRecord::Schema.define(version: 2020_05_17_072445) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "collection_designs", force: :cascade do |t|
-    t.bigint "design_id"
-    t.bigint "collection_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["collection_id"], name: "index_collection_designs_on_collection_id"
-    t.index ["design_id"], name: "index_collection_designs_on_design_id"
-  end
-
   create_table "collections", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title"
@@ -65,13 +56,17 @@ ActiveRecord::Schema.define(version: 2020_05_17_072445) do
     t.index ["user_id"], name: "index_designs_on_user_id"
   end
 
-  create_table "shopping_carts", force: :cascade do |t|
+  create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "design_id"
+    t.string "address"
+    t.string "shirt_size"
+    t.integer "creatorID"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["design_id"], name: "index_shopping_carts_on_design_id"
-    t.index ["user_id"], name: "index_shopping_carts_on_user_id"
+    t.text "comment"
+    t.index ["design_id"], name: "index_orders_on_design_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -89,11 +84,9 @@ ActiveRecord::Schema.define(version: 2020_05_17_072445) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "collection_designs", "collections"
-  add_foreign_key "collection_designs", "designs"
   add_foreign_key "collections", "users"
   add_foreign_key "designs", "collections"
   add_foreign_key "designs", "users"
-  add_foreign_key "shopping_carts", "designs"
-  add_foreign_key "shopping_carts", "users"
+  add_foreign_key "orders", "designs"
+  add_foreign_key "orders", "users"
 end

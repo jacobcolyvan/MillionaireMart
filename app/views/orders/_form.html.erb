@@ -1,0 +1,23 @@
+<%= form_with model: order, local: true do |form| %>
+    <div>
+        <%= form.label :address %>
+        <%= form.text_field :address, value: design.title %>
+    </div>
+    <div>
+        <%= form.label :comment %>
+        <%= form.text_area :comment %>
+    </div>
+    <div>
+        <%= form.label :collection_id %>
+        <%= form.select(:collection_id, options_for_select(["S", "M", "L", "XL"])) %>
+    </div>
+    <div>
+        <%= hidden_field_tag(:user_id, design.user_id) %>
+    </div>
+    <div>
+        <%= hidden_field_tag(:design_id, design_id) %>
+    </div>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

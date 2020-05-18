@@ -8,6 +8,7 @@ class DesignsController < ApplicationController
 
   def show 
     @design = Design.find(params["id"])
+    @order = Order.create
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],

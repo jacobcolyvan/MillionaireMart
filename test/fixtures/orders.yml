@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  design: one
+  address: MyString
+  shirt_size: MyString
+  creatorID: 1
+
+two:
+  user: two
+  design: two
+  address: MyString
+  shirt_size: MyString
+  creatorID: 1

@@ -1,7 +1,8 @@
 <h1>COLLECTIONS</h1>
 
-<%# if user has admin rights %>
-<%= link_to "Add collection", new_collection_path%>
+<% if current_user %>
+  <%= link_to "Add collection", new_collection_path%>
+<% end %>
 
 <br>
 <ul>
@@ -21,7 +22,3 @@
   <% end %>
 </ul>
 <br>
-
-
-
-

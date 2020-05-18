@@ -12,3 +12,4 @@ for i in 1..10
 end
 
 
+# Collection.create(title: "Animals", user_id: 1, description: "because everybody loves fur", picture: File.open('app/assets/images/animals/cod.jpg'))

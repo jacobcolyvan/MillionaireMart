@@ -7,7 +7,7 @@
     <li class="card">
       <%= link_to "#{design.title}", desi_path(design.id) %>
       <%= image_tag design.picture if design.picture.attached? %>
-
+      
       <% if current_user && current_user.id == design.user_id %>
         <%= link_to "Edit", edit_des_path(design.id) %>
       <% end %>
@@ -17,7 +17,12 @@
 </ul>
 <br>
 
-<%# add design %> 
-<%= link_to "Add design", new_des_path%>
-<%= link_to "Edit collection", edit_collection_path%>
+<%# add design %>
+<% if current_user %> 
+  <%= link_to "Add design", new_des_path %>
+  <% if current_user.id == @collection.user_id %>
+    <%= link_to "Edit collection", edit_collection_path%>
+  <% end %>
+<% end %>
+
 <%= link_to "Return to collections", collections_path%>
