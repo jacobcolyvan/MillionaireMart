@@ -69,6 +69,6 @@ gem "aws-sdk-s3", "~> 1.64"
 
 gem "stripe", "~> 5.22"
 
-gem "bootstrap", "~> 4.0.0"
+gem "bootstrap", "~> 4.3.1"
 
 gem 'jquery-rails'
