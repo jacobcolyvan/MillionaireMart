@@ -3,7 +3,7 @@ class DesignsController < ApplicationController
   before_action :set_design, only: [:show]
 
   def index
-    @designs = Design.all
+    @designs = Design.all.sort_by(&:created_at).reverse
   end
 
   def show 

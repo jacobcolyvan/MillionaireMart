@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+@import "bootstrap";
 
 ruby '2.7.0'
 
@@ -68,3 +69,5 @@ gem "faker", "~> 2.11"
 gem "aws-sdk-s3", "~> 1.64"
 
 gem "stripe", "~> 5.22"
+
+gem "bootstrap", "~> 4.0.0"
