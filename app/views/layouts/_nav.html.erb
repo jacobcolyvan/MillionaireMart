@@ -1,15 +1,27 @@
-<div class="nav">
-  <%= link_to "Home", root_path%>
-  <%= link_to "Collections", collections_path%>
-  <%= link_to "About/Contact", about_path%>
-  <%# shopping cart %>
-  
-  <div class="signed">
-    <% if user_signed_in? %>
-      <%= link_to "logout", destroy_user_session_path, method: :delete %>
-      <%= link_to 'Edit Profile', edit_user_registration_path %>
-    <% else %>
-      <%= link_to "login / sign-up", new_user_session_path %>
-    <% end %>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to "Home", root_path, class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Collections", collections_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "About/Contact", about_path, class: "nav-link" %>
+      </li>
+    </ul>
+    <form class="form-inline">
+      <% if user_signed_in? %>
+        <%= link_to "Log Out", destroy_user_session_path, class:"btn btn-outline-primary my-2 my-sm-0", :method => :delete %>
+        <%= link_to 'Edit Profile', edit_user_registration_path, class:"btn btn-outline-primary my-2 my-sm-0" %>
+      <% else %>
+        <%= link_to("Sign In", new_user_session_path, class:"btn btn-outline-primary my-2 my-sm-0" ) %> 
+      <% end %>
+    </form>
   </div>
-</div>
+</nav>
