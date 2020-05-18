@@ -5,9 +5,8 @@
 <%= image_tag @design.picture if @design.picture.attached? %>
 <br>
 
-<button data-stripe="payment">
-  Pay Deposit <%= number_to_currency(30) %>
-</button>
+<button data-stripe="payment">Pay Deposit <%= number_to_currency(30) %></button>
+
 <script src="https://js.stripe.com/v3/"></script>
 
 <script>

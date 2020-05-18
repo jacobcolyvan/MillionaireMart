@@ -15,9 +15,9 @@ class DesignsController < ApplicationController
       line_items: [{
           name: @design.title,
           description: @design.description,
-          amount: 100,
+          amount: 30 * 100,
           currency: 'aud',
-          quantity: 100,
+          quantity: 1,
       }],
       payment_intent_data: {
           metadata: {

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'carts/show'
   devise_for :users
   get "/", to: "pages#home", as: "root"
   get "/about", to: "pages#about", as: "about"
@@ -29,4 +28,5 @@ Rails.application.routes.draw do
   delete "/designs/:id", to: "designs#destroy"
 
   get "/payments/success", to: "payments#success"
+  post "/payments/webhook", to: "payments#webhook"
 end
