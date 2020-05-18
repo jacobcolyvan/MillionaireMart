@@ -1,10 +1,28 @@
 <h1><%= @design.title %></h1>
 <p><%= @design.description %></p>
-
 <br>
 
 <%= image_tag @design.picture if @design.picture.attached? %>
 <br>
+
+<button data-stripe="payment">
+  Pay Deposit <%= number_to_currency(30) %>
+</button>
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+  document
+    .querySelector("[data-stripe='payment']")
+    .addEventListener("click", () => {
+      const stripe = Stripe(
+        "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
+      );
+
+      stripe.redirectToCheckout({
+        sessionId: "<%= @session_id %>"
+      });
+    });
+</script>
 
 <br>
 

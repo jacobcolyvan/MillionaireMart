@@ -5,7 +5,7 @@
 <ul>
   <% for design in @designs %>
     <li class="card">
-      <%= design.title %>
+      <%= link_to "#{design.title}", desi_path(design.id) %>
       <%= image_tag design.picture if design.picture.attached? %>
 
       <% if current_user && current_user.id == design.user_id %>

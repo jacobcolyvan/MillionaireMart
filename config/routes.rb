@@ -27,4 +27,6 @@ Rails.application.routes.draw do
   put "/designs/:id", to: "designs#update"
   patch "/designs/:id", to: "designs#update"
   delete "/designs/:id", to: "designs#destroy"
+
+  get "/payments/success", to: "payments#success"
 end

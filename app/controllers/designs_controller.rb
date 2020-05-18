@@ -8,6 +8,28 @@ class DesignsController < ApplicationController
 
   def show 
     @design = Design.find(params["id"])
+
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      customer_email: current_user.email,
+      line_items: [{
+          name: @design.title,
+          description: @design.description,
+          amount: 100,
+          currency: 'aud',
+          quantity: 100,
+      }],
+      payment_intent_data: {
+          metadata: {
+              user_id: current_user.id,
+              design_id: @design.id
+          }
+      },
+      success_url: "#{root_url}payments/success?userId=#{current_user.id}&designId=#{@design.id}",
+      cancel_url: "#{root_url}designs"
+  )
+
+  @session_id = session.id
   end
 
   def new
