@@ -1,21 +1,23 @@
+
+ 
+* {
+  box-sizing:border-box;
+  background: #16202C;
+  color: #fff;
+  list-style: none;
+}
+
 @import "bootstrap";
  
- * {
-  box-sizing:border-box;
-   background: #16202C;
-   color: #fff;
-   
-  //  list-style: none;
- }
+.homeImage {
+  max-width: 80%;
+}
 
-//  .mainContainer {
-//    background-color: #414D5B;
-//    
-//  }
-
- .w-20 {
+.w-20 {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 20% !important;
-          flex: 0 0 20% !important;
+  -ms-flex: 0 0 20% !important;
+  flex: 0 0 20% !important;
   max-width: 20%;
 }
+
+

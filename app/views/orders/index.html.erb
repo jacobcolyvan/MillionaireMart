@@ -2,9 +2,14 @@
 
 <% for order in @orders %>
     <div class="order">
-        <li><strong><%= order.listing.title %></strong></li>
-        <li><%= order.created_at %></li>
-        <li><%= order.user.address %></li>
+        <ul>
+            <li><strong><%= order.listing.title %></strong></li>
+            <li><%= order.created_at %></li>
+            <li><%= order.user.address %></li>
+        </ul>
     </div>
     <br>
 <% end %>
+
+<br>
+<%= link_to "Return to collections", collections_path%>

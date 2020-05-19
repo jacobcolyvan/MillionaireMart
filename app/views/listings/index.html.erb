@@ -3,14 +3,14 @@
 <%= link_to "Add Listing", new_des_path%>
 
 <br>
+
 <ul>
   <% for listing in @listings %>
     <li>
       <%= link_to "#{listing.title}", listing_path(listing.id) %>
-      <%= image_tag collection.picture if collection.picture.attached? %>
+      <%= image_tag listing.picture if listing.picture.attached? %>
     </li>
   <% end %>
 </ul>
 
 <%= link_to "Return to collections", collections_path%>
-<%# <%= link_to "view", listing_path(listing) %> %>
