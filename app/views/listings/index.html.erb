@@ -1,12 +1,12 @@
-<h1>All Designs</h1>
+<h1>All Listings</h1>
 
-<%= link_to "Add Design", new_des_path%>
+<%= link_to "Add Listing", new_des_path%>
 
 <br>
 <ul>
-  <% for design in @designs %>
+  <% for listing in @listings %>
     <li>
-      <%= link_to "#{design.title}", design_path(design.id) %>
+      <%= link_to "#{listing.title}", listing_path(listing.id) %>
       <%= image_tag collection.picture if collection.picture.attached? %>
     </li>
   <% end %>

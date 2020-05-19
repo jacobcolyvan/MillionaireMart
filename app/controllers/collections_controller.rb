@@ -22,7 +22,7 @@ class CollectionsController < ApplicationController
 
   def show
     @collection = Collection.find(params["id"])
-    @designs = @collection.designs
+    @listings = @collection.listings
   end
 
   def edit

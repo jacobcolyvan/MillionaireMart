@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  design: one
+  listing: one
   collection: one
 
 two:
-  design: two
+  listing: two
   collection: two

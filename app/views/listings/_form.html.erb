@@ -1,15 +1,15 @@
-<%= form_with model: design, local: true do |form| %>
+<%= form_with model: listing, local: true do |form| %>
     <div>
         <%= form.label :title %>
-        <%= form.text_field :title, value: design.title %>
+        <%= form.text_field :title, value: listing.title %>
     </div>
     <div>
         <%= form.label :description %>
-        <%= form.text_area :description, value: design.description %>
+        <%= form.text_area :description, value: listing.description %>
     </div>
     <div>
         <%= form.label :collection_id %>
-        <%= form.select(:collection_id, options_for_select(collections.map{|c| [c.title, c.id]}, design.collection_id)) %>
+        <%= form.select(:collection_id, options_for_select(collections.map{|c| [c.title, c.id]}, listing.collection_id)) %>
     </div>
     <div>
         <%= form.label :picture %> <%= form.file_field :picture, accept:

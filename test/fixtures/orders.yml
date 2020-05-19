@@ -2,14 +2,14 @@
 
 one:
   user: one
-  design: one
+  listing: one
   address: MyString
   shirt_size: MyString
   creatorID: 1
 
 two:
   user: two
-  design: two
+  listing: two
   address: MyString
   shirt_size: MyString
   creatorID: 1

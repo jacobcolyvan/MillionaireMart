@@ -1,4 +1,4 @@
-class CollectionDesign < ApplicationRecord
-  belongs_to :design
+class CollectionListing < ApplicationRecord
+  belongs_to :listing
   belongs_to :collection
 end

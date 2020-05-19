@@ -16,17 +16,17 @@ Rails.application.routes.draw do
   delete "/collections/:id", to: "collections#destroy"
 
 
-  resources :designs
-  get "/designs", to: "designs#index", as: "des"
-  get "/designs/new", to: "designs#new", as: "new_des"
-  post "/designs/:id", to: "designs#create"
-  get "/designs/:id", to: "designs#show", as: "desi"
-  post "/designs/:id", to: "orders#create", as: "orders_path"
+  resources :listings
+  get "/listings", to: "listings#index", as: "des"
+  get "/listings/new", to: "listings#new", as: "new_des"
+  post "/listings/:id", to: "listings#create"
+  get "/listings/:id", to: "listings#show", as: "desi"
+  post "/listings/:id", to: "orders#create", as: "orders_path"
 
-  get "/designs/:id/edit", to: "designs#edit", as: "edit_des"
-  put "/designs/:id", to: "designs#update"
-  patch "/designs/:id", to: "designs#update"
-  delete "/designs/:id", to: "designs#destroy"
+  get "/listings/:id/edit", to: "listings#edit", as: "edit_des"
+  put "/listings/:id", to: "listings#update"
+  patch "/listings/:id", to: "listings#update"
+  delete "/listings/:id", to: "listings#destroy"
 
   get "/payments/success", to: "payments#success"
   post "/payments/webhook", to: "payments#webhook"

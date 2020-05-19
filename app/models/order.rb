@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
   belongs_to :user
-  belongs_to :design
+  belongs_to :listing
   
 end

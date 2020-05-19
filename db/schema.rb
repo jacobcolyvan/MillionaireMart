@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_120011) do
+ActiveRecord::Schema.define(version: 2020_05_19_045846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,27 +45,26 @@ ActiveRecord::Schema.define(version: 2020_05_18_120011) do
     t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
-  create_table "designs", force: :cascade do |t|
+  create_table "listings", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "collection_id"
-    t.index ["collection_id"], name: "index_designs_on_collection_id"
-    t.index ["user_id"], name: "index_designs_on_user_id"
+    t.integer "price"
+    t.index ["collection_id"], name: "index_listings_on_collection_id"
+    t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "design_id"
-    t.string "address"
-    t.string "shirt_size"
+    t.bigint "listing_id"
     t.integer "creatorID"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "comment"
-    t.index ["design_id"], name: "index_orders_on_design_id"
+    t.index ["listing_id"], name: "index_orders_on_listing_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -85,8 +84,8 @@ ActiveRecord::Schema.define(version: 2020_05_18_120011) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "collections", "users"
-  add_foreign_key "designs", "collections"
-  add_foreign_key "designs", "users"
-  add_foreign_key "orders", "designs"
+  add_foreign_key "listings", "collections"
+  add_foreign_key "listings", "users"
+  add_foreign_key "orders", "listings"
   add_foreign_key "orders", "users"
 end
