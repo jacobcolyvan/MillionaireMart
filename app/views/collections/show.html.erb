@@ -4,15 +4,19 @@
 
 <ul>
   <% for design in @designs %>
-    <li class="card">
+    <div class="card" style="width: 18rem;">
       <%= link_to "#{design.title}", desi_path(design.id) %>
-      <%= image_tag design.picture if design.picture.attached? %>
-      
+      <%= if design.picture.attached? %>
+      <% if design.picture.attached? %>
+        <%= image_tag design.picture %>
+      <% else %>
+        <img src="https://content.linkedin.com/content/dam/me/learning/blog/2017/Junepics/Money.jpg" alt="">
+      <% end %>
       <% if current_user && current_user.id == design.user_id %>
         <%= link_to "Edit", edit_des_path(design.id) %>
       <% end %>
       <%# link to design page %>
-    </li>
+    </div>
   <% end %>
 </ul>
 <br>

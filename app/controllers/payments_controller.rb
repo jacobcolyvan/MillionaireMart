@@ -2,6 +2,11 @@ class PaymentsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:webhook]
 
   def success
+    puts "******"
+    puts params
+    puts params["designId"]
+    puts "******"
+    Order.create(user: current_user, design_id: params[:designId])
   end
 
   def webhook

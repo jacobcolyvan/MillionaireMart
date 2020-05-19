@@ -7,6 +7,7 @@
   <% for design in @designs %>
     <li>
       <%= link_to "#{design.title}", design_path(design.id) %>
+      <%= image_tag collection.picture if collection.picture.attached? %>
     </li>
   <% end %>
 </ul>

@@ -4,7 +4,7 @@ class CollectionsController < ApplicationController
   before_action :set_collection, only: [:show]
 
   def index 
-    @collections = Collection.all.sort_by(&:created_at).reverse
+    @collections = Collection.all.sort_by(&:created_at)
   end
 
   def new

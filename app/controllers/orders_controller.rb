@@ -8,17 +8,13 @@ class OrdersController < ApplicationController
     # end
   end
 
-  def create
-    @order = current_user.order.create(design_params)
-    if @design.errors.any?
-      render "new"
-    else 
-      redirect_to collections_path
-    end 
-  end
+  # def create
+  #   # @order = current_user.order.create(design_params)
+  #   Order.create(user_id: params[:userID], design_id: params[:designID])
+  # end
 
   private
   def orders_params
-      params.require(:order).permit(:address, :comment, :shirt_size, :user_id, :design_id)
+      # params.require(:order).permit(:comment, :shirt_size, :user_id, :design_id)
   end  
 end

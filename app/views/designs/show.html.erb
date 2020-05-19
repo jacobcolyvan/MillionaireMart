@@ -5,29 +5,6 @@
 <%= image_tag @design.picture if @design.picture.attached? %>
 <br>
 
-<%= form_with model: @order, local: true do |form| %>
-    <div>
-        <%= form.label :address %>
-        <%= form.text_field :address %>
-    </div>
-    <div>
-        <%= form.label :comment %>
-        <%= form.text_area :comment %>
-    </div>
-    <div>
-        <%= form.label :shirt_size %>
-        <%= form.select(:shirt_size, options_for_select(["S", "M", "L", "XL"])) %>
-    </div>
-    <div>
-        <%= hidden_field_tag(:user_id, design.user_id) %>
-    </div>
-    <div>
-        <%= hidden_field_tag(:design_id, design_id) %>
-    </div>
-    <div>
-        <%= form.submit %>
-    </div>
-<% end %>
 
 <button data-stripe="payment">Pay Deposit <%= number_to_currency(30) %></button>
 

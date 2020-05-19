@@ -7,9 +7,13 @@
 <br>
 <ul>
   <% for collection in @collections %>
-    <li class="card">
+    <div class="card" style="width: 18rem;">
       <%= link_to "#{collection.title}", collection_path(collection.id) %>
-      <%= image_tag collection.picture if collection.picture.attached? %>
+      <% if collection.picture.attached? %>
+        <%= image_tag collection.picture %>
+      <% else %>
+        <img src="https://content.linkedin.com/content/dam/me/learning/blog/2017/Junepics/Money.jpg" alt="">
+      <% end %>
       <% if current_user && current_user.id == collection.user_id %>
         <%= form_with model: collection, local: true, method: "delete" do |form| %>
           <div class="modify-icons">
@@ -18,7 +22,7 @@
           </div>
         <% end %>
       <% end %>
-    </li>
+    </div>
   <% end %>
 </ul>
 <br>
