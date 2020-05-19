@@ -1,16 +1,21 @@
 @import "bootstrap";
  
  * {
+  box-sizing:border-box;
    background: #16202C;
    color: #fff;
+   
   //  list-style: none;
  }
 
- .mainContainer {
-   background-color: #414D5B;
-   padding: 5px;
- }
+//  .mainContainer {
+//    background-color: #414D5B;
+//    
+//  }
 
- img {
-   width: 200px;
- }
+ .w-20 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 20% !important;
+          flex: 0 0 20% !important;
+  max-width: 20%;
+}

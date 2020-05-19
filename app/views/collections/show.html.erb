@@ -1,32 +1,29 @@
-<h1><%= @collection.title %></h1>
-<p><%= @collection.description %></p>
-<br>
-
-<ul>
-  <% for design in @designs %>
-    <div class="card" style="width: 18rem;">
-      <%= link_to "#{design.title}", desi_path(design.id) %>
-      <%= if design.picture.attached? %>
-      <% if design.picture.attached? %>
-        <%= image_tag design.picture %>
-      <% else %>
-        <img src="https://content.linkedin.com/content/dam/me/learning/blog/2017/Junepics/Money.jpg" alt="">
-      <% end %>
-      <% if current_user && current_user.id == design.user_id %>
-        <%= link_to "Edit", edit_des_path(design.id) %>
-      <% end %>
-      <%# link to design page %>
-    </div>
+<div class="grid-container">
+  <h1><%= @collection.title %></h1>
+  <p><%= @collection.description %></p>
+  <% if current_user %> 
+    <%= link_to "Add design", new_des_path %>
+    <% if current_user.id == @collection.user_id %>
+      <%= link_to "Edit collection", edit_collection_path%>
+    <% end %>
   <% end %>
-</ul>
+  <%= link_to "Return to collections", collections_path%>
+  <div class="inner-grid">
+    <% for design in @designs %>
+      <div class="card" style="width: 33.333%">
+        <% if design.picture.attached? %>
+          <%= image_tag design.picture %>
+        <% else %>
+          <img class="card-img-top" src="https://content.linkedin.com/content/dam/me/learning/blog/2017/Junepics/Money.jpg" alt="Card image">
+        <% end %>
+
+        <%= link_to "#{design.title}", desi_path(design.id) %>
+        <% if current_user && current_user.id == design.user_id %>
+          <%= link_to "Edit", edit_des_path(design.id) %>
+        <% end %>
+        <%# link to design page %>
+      </div>
+    <% end %>
+  </div>
+</div>
 <br>
-
-<%# add design %>
-<% if current_user %> 
-  <%= link_to "Add design", new_des_path %>
-  <% if current_user.id == @collection.user_id %>
-    <%= link_to "Edit collection", edit_collection_path%>
-  <% end %>
-<% end %>
-
-<%= link_to "Return to collections", collections_path%>

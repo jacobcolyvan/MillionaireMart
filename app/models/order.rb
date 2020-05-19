@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
   belongs_to :user
-  has_one :design
+  belongs_to :design
   
 end
