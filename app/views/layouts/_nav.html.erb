@@ -3,13 +3,16 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarColor01">
+  <div class="collapse navbar-collapse bg-dark" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item bg-dark">
         <%= link_to "Home", root_path, class:"nav-link" %>
       </li>
       <li class="nav-item bg-dark">
         <%= link_to "Collections", collections_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item bg-dark">
+        <%= link_to "Listings", listings_path, class: "nav-link" %>
       </li>
       <li class="nav-item bg-dark">
         <%= link_to "About/Contact", about_path, class: "nav-link" %>

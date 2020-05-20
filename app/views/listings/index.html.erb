@@ -1,6 +1,8 @@
 <h1>All Listings</h1>
 
-<%= link_to "Add Listing", new_des_path%>
+<% if current_user %>
+  <%= link_to "Add Listing", new_des_path%>
+<% end %>
 
 <br>
 
@@ -8,9 +10,10 @@
   <% for listing in @listings %>
     <li>
       <%= link_to "#{listing.title}", listing_path(listing.id) %>
-      <%= image_tag listing.picture if listing.picture.attached? %>
+      <%# <%= image_tag listing.picture if listing.picture.attached? %>
     </li>
   <% end %>
 </ul>
 
+<br>
 <%= link_to "Return to collections", collections_path%>

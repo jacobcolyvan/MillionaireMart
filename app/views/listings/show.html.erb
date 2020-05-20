@@ -2,10 +2,14 @@
 <p><%= @listing.description %></p>
 <br>
 
-<%= image_tag @listing.picture if @listing.picture.attached? %>
+<% if @listing.picture.attached? %>
+  <%= image_tag @listing.picture %>
+<% else %>
+  <img src="https://content.linkedin.com/content/dam/me/learning/blog/2017/Junepics/Money.jpg" alt="money">
+<% end %>
 <br>
 
-
+<br>
 <% if current_user %>
   <button data-stripe="payment">Pay Deposit <%= number_to_currency(30) %></button>
 
@@ -27,5 +31,11 @@
 <% end %>
 <br>
 
-<%= link_to "Return to collections", collections_path%>
+<br>
+<% if current_user && current_user.id == @listing.user_id %>
+  <%= link_to "Edit Listing", edit_des_path%>
+<% end %>
+<br>
+
+
 

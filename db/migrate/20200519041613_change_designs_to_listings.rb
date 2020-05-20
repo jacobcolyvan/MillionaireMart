@@ -1,5 +1,5 @@
-class ChangeListingsToListings < ActiveRecord::Migration[5.2]
+class ChangeDesignsToListings < ActiveRecord::Migration[5.2]
   def change
-    rename_table :listings, :listings
+    rename_table :designs, :listings
   end
 end

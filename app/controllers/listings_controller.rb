@@ -9,6 +9,8 @@ class ListingsController < ApplicationController
   def show 
     @listing = Listing.find(params["id"])
 
+    
+
     if current_user
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
@@ -28,10 +30,9 @@ class ListingsController < ApplicationController
         },
         success_url: "#{root_url}payments/success?userId=#{current_user.id}&listingId=#{@listing.id}",
         cancel_url: "#{root_url}listings"
-    )
-  end
-
-  @session_id = session.id
+      )
+      @session_id = session.id
+    end 
   end
 
   def new
