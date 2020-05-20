@@ -16,20 +16,23 @@
       <% for listing in @listings %>
         <div class="col-md-4">
           <div class="card mb-4 box-shadow bg-dark">
-            <% if listing.picture.attached? %>
-              <%= image_tag listing.picture, class: "card-img-top" %>
-            <% else %>
-              <img class="card-img-top " src="https://content.linkedin.com/content/dam/me/learning/blog/2017/Junepics/Money.jpg" alt="Card image">
-            <% end %>
+            <a href="<%= desi_path(listing.id) %>">
+              <% if listing.picture.attached? %>
+                <%= image_tag listing.picture, class: "card-img-top" %>
+              <% else %>
+                <img class="card-img-top " src="https://content.linkedin.com/content/dam/me/learning/blog/2017/Junepics/Money.jpg" alt="Card image">
+              <% end %>
+            </a>
             
             <%= link_to "#{listing.title}", desi_path(listing.id) %>
+            <p class="card-text bg-dark"><%= listing.description %></p>
             <% if current_user && current_user.id == listing.user_id %>
-              <%= link_to "Edit", edit_des_path(listing.id) %>
-              <%= form_with model: listing, local: true, method: "delete" do |form| %>
-                <div class="modify-icons">
-                  <%= submit_tag "delete", class: "icon" %>
-                </div>
-              <% end %>
+              <div class="bg-dark">
+                <%= form_with model: listing, local: true, method: "delete", class: "bg-dark" do |form| %>
+                    <%= link_to "Edit", edit_des_path(listing.id), class: "btn btn-sm btn-outline-secondary" %>
+                    <%= submit_tag "delete", class: "btn btn-sm btn-outline-secondary" %>
+                <% end %>
+              </div>
             <% end %>
           </div>
         </div>

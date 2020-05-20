@@ -3,7 +3,6 @@
 <% if current_user %>
   <%= link_to "Add collection", new_collection_path, class: "navLink" %>
 <% end %>
-<br>
 
 <div class="album py-5">
   <div class="container">
@@ -11,19 +10,22 @@
       <% for collection in @collections %>
         <div class="col-md-4">
           <div class="card mb-4 box-shadow bg-dark">
-            <% if collection.picture.attached? %>
-              <%= image_tag collection.picture, class: "card-img-top" %>
-            <% else %>
-              <img class="card-img-top" src="https://content.linkedin.com/content/dam/me/learning/blog/2017/Junepics/Money.jpg" alt="Card image">
-            <% end %>
+            <a href="<%= desi_path(listing.id) %>">
+              <% if collection.picture.attached? %>
+                <%= image_tag collection.picture, class: "card-img-top" %>
+              <% else %>
+                <img class="card-img-top" src="https://content.linkedin.com/content/dam/me/learning/blog/2017/Junepics/Money.jpg" alt="Card image">
+              <% end %>
+            </a>
                   
             <%= link_to "#{collection.title}", collection_path(collection.id) %>
+            <p class="card-text bg-dark"><%= collection.description %></p>
             <% if current_user && current_user.id == collection.user_id %>
-              <div class="modify-icons bg-dark">
-                <%= link_to "Edit", edit_collection_path(collection.id), class: "icon" %>
-                <%= form_with model: collection, local: true, method: "delete" do |form| %>
-                  <%= submit_tag "delete", class: "icon " %>
-              <% end %>
+              <div class=" bg-dark">
+                <%= form_with model: collection, local: true, method: "delete", class: "bg-dark" do |form| %>
+                    <%= link_to "Edit", edit_collection_path(collection.id), class: "btn btn-sm btn-outline-secondary" %>
+                    <%= submit_tag "delete", class: "btn btn-sm btn-outline-secondary" %>   
+                <% end %>
               </div>
             <% end %>
           </div>
