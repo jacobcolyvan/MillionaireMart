@@ -46,7 +46,7 @@ NOTE: need to identify WHY it is a problem that needs solving.
 <br>
 
 ##### Target Audience
-The target audience is for millionaires, or those with money they want to burn. It is for those users who want to make interesting expesnive purchases that they wouldn't normally see. Like a wish, but its useless expesnive stuff instead of cheap. 
+The target audience is for millionaires, or those with money they want to burn. It is for those users who **want** to make interesting expesnive purchases that they wouldn't normally see. Like a wish, but its useless expesnive stuff instead of cheap. 
 <br>
 
 ##### Tech Stack

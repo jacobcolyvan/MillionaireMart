@@ -3,13 +3,12 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show]
 
   def index
-    @listings = Listing.all.sort_by(&:created_at).reverse
+    # sorts listings and makes them available to index view
+    @listings = Listing.all.sort_by(&:created_at)
   end
 
   def show 
     @listing = Listing.find(params["id"])
-
-    
 
     if current_user
       session = Stripe::Checkout::Session.create(
@@ -18,7 +17,7 @@ class ListingsController < ApplicationController
         line_items: [{
             name: @listing.title,
             description: @listing.description,
-            amount: 30 * 100,
+            amount: @listing.price * 100,
             currency: 'aud',
             quantity: 1,
         }],
@@ -86,7 +85,7 @@ class ListingsController < ApplicationController
 
   private
   def listing_params
-      params.require(:listing).permit(:title, :description, :collection_id, :picture)
+      params.require(:listing).permit(:title, :description, :collection_id, :picture, :price)
   end  
 
   def set_collections

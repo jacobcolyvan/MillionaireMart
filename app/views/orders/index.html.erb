@@ -1,15 +1,18 @@
-<h1>All orders<h1>
-
-<% for order in @orders %>
-    <div class="order">
-        <ul>
-            <li><strong><%= order.listing.title %></strong></li>
-            <li><%= order.created_at %></li>
-            <li><%= order.user.address %></li>
-        </ul>
-    </div>
-    <br>
-<% end %>
+<h1>All orders</h1>
 
 <br>
-<%= link_to "Return to collections", collections_path%>
+<div class="orders">
+    <% for order in @orders %>
+        <div class="order">
+            <ul>
+                <li><strong><%= order.listing.title %></strong></li>
+                <li><%= order.created_at %></li>
+                <li><%= order.user.address %></li>
+                <li><%= order.listing.price %></li>
+            </ul>
+            <br>
+        </div>
+    <% end %>
+</div>
+
+<%= link_to "Return to collections", collections_path, class: "navLink"%>

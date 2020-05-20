@@ -1,9 +1,8 @@
 <h1>All Listings</h1>
 
 <% if current_user %>
-  <%= link_to "Add Listing", new_des_path%>
+  <%= link_to "Add Listing", new_des_path, class: "navLink"%>
 <% end %>
-
 <br>
 
 <ul>
@@ -16,4 +15,4 @@
 </ul>
 
 <br>
-<%= link_to "Return to collections", collections_path%>
+<%= link_to "Return to collections", collections_path, class: "navLink"%>

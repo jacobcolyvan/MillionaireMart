@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   get "/listings/new", to: "listings#new", as: "new_des"
   post "/listings/:id", to: "listings#create"
   get "/listings/:id", to: "listings#show", as: "desi"
-  post "/listings/:id", to: "orders#create", as: "orders_path"
 
   get "/listings/:id/edit", to: "listings#edit", as: "edit_des"
   put "/listings/:id", to: "listings#update"
@@ -30,5 +29,5 @@ Rails.application.routes.draw do
 
   get "/payments/success", to: "payments#success"
   post "/payments/webhook", to: "payments#webhook"
-  get "/orders", to: "orders#index"
+  get "/orders", to: "orders#index", as: "orders"
 end

@@ -1,23 +1,22 @@
-
+@import "bootstrap";
  
 * {
   box-sizing:border-box;
   background: #16202C;
   color: #fff;
-  list-style: none;
 }
 
-@import "bootstrap";
+ul, li { 
+  margin-left: 0; 
+  padding-left: 0; 
+  list-style: none;
+}
  
 .homeImage {
   max-width: 80%;
 }
-
-.w-20 {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 20% !important;
-  flex: 0 0 20% !important;
-  max-width: 20%;
+.navLink {
+  display: block;
 }
 
 
@@ -27,6 +26,4 @@
   }
 }
 
-.navLink {
-  display: block;
-}
+
