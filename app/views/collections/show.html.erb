@@ -1,29 +1,42 @@
-<div class="grid-container">
-  <h1><%= @collection.title %></h1>
-  <p><%= @collection.description %></p>
-  <% if current_user %> 
-    <%= link_to "Add listing", new_des_path %>
-    <% if current_user.id == @collection.user_id %>
-      <%= link_to "Edit collection", edit_collection_path%>
-    <% end %>
-  <% end %>
-  <%= link_to "Return to collections", collections_path%>
-  <div class="inner-grid">
-  <% for listing in @listings %>
-    <div class="card" style="width: 33.333%">
-      <% if listing.picture.attached? %>
-        <%= image_tag listing.picture %>
-      <% else %>
-        <img class="card-img-top" src="https://content.linkedin.com/content/dam/me/learning/blog/2017/Junepics/Money.jpg" alt="Card image">
-      <% end %>
 
-      <%= link_to "#{listing.title}", desi_path(listing.id) %>
-      <% if current_user && current_user.id == listing.user_id %>
-        <%= link_to "Edit", edit_des_path(listing.id) %>
-      <% end %>
-      <%# link to listing page %>
-    </div>
+<h1><%= @collection.title %></h1>
+<p><%= @collection.description %></p>
+<% if current_user %> 
+  <%= link_to "Add listing", new_des_path, class: "navLink" %>
+  <% if current_user.id == @collection.user_id %>
+    <%= link_to "Edit collection", edit_collection_path, class: "navLink" %>
   <% end %>
+<% end %>
+
+<%= link_to "Return to collections", collections_path, class: "navLink"%>
+
+<div class="album py-5">
+  <div class="container">
+    <div class="row">
+      <% for listing in @listings %>
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow bg-dark">
+            <% if listing.picture.attached? %>
+              <%= image_tag listing.picture, class: "card-img-top" %>
+            <% else %>
+              <img class="card-img-top " src="https://content.linkedin.com/content/dam/me/learning/blog/2017/Junepics/Money.jpg" alt="Card image">
+            <% end %>
+            
+            <%= link_to "#{listing.title}", desi_path(listing.id) %>
+            <% if current_user && current_user.id == listing.user_id %>
+              <%= link_to "Edit", edit_des_path(listing.id) %>
+              <%= form_with model: listing, local: true, method: "delete" do |form| %>
+                <div class="modify-icons">
+                  <%= submit_tag "delete", class: "icon" %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
+
+
 <br>

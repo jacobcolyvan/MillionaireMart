@@ -1,28 +1,34 @@
 <h1>COLLECTIONS</h1>
 
 <% if current_user %>
-  <%= link_to "Add collection", new_collection_path%>
+  <%= link_to "Add collection", new_collection_path, class: "navLink" %>
 <% end %>
-
 <br>
-<ul>
-  <% for collection in @collections %>
-    <div class="card" style="width: 18rem;">
-      <%= link_to "#{collection.title}", collection_path(collection.id) %>
-      <% if collection.picture.attached? %>
-        <%= image_tag collection.picture %>
-      <% else %>
-        <img src="https://content.linkedin.com/content/dam/me/learning/blog/2017/Junepics/Money.jpg" alt="">
-      <% end %>
-      <% if current_user && current_user.id == collection.user_id %>
-        <%= form_with model: collection, local: true, method: "delete" do |form| %>
-          <div class="modify-icons">
-            <%= submit_tag "delete", class: "icon" %>
-            <%= link_to "Edit", edit_collection_path(collection.id), class: "icon" %>
+
+<div class="album py-5">
+  <div class="container">
+    <div class="row">
+      <% for collection in @collections %>
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow bg-dark">
+            <% if collection.picture.attached? %>
+              <%= image_tag collection.picture, class: "card-img-top" %>
+            <% else %>
+              <img class="card-img-top" src="https://content.linkedin.com/content/dam/me/learning/blog/2017/Junepics/Money.jpg" alt="Card image">
+            <% end %>
+                  
+            <%= link_to "#{collection.title}", collection_path(collection.id) %>
+            <% if current_user && current_user.id == collection.user_id %>
+              <div class="modify-icons bg-dark">
+                <%= link_to "Edit", edit_collection_path(collection.id), class: "icon" %>
+                <%= form_with model: collection, local: true, method: "delete" do |form| %>
+                  <%= submit_tag "delete", class: "icon " %>
+              <% end %>
+              </div>
+            <% end %>
           </div>
-        <% end %>
+        </div>
       <% end %>
     </div>
-  <% end %>
-</ul>
-<br>
+  </div>
+</div>

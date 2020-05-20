@@ -2,17 +2,17 @@
 <p><%= @listing.description %></p>
 <br>
 
-<% if @listing.picture.attached? %>
-  <%= image_tag @listing.picture %>
-<% else %>
-  <img src="https://content.linkedin.com/content/dam/me/learning/blog/2017/Junepics/Money.jpg" alt="money">
-<% end %>
-<br>
+<div class="container">
+  <% if @listing.picture.attached? %>
+    <%= image_tag @listing.picture, class: "img-responsive img-rounded" %>
+  <% else %>
+    <img class="img-responsive img-rounded" src="https://content.linkedin.com/content/dam/me/learning/blog/2017/Junepics/Money.jpg" alt="money">
+  <% end %>
+</div>
 
 <br>
 <% if current_user %>
   <button data-stripe="payment">Pay Deposit <%= number_to_currency(30) %></button>
-
   <script src="https://js.stripe.com/v3/"></script>
 
   <script>
@@ -28,12 +28,12 @@
         });
       });
   </script>
-<% end %>
-<br>
 
-<br>
-<% if current_user && current_user.id == @listing.user_id %>
-  <%= link_to "Edit Listing", edit_des_path%>
+  <br>
+  <br>
+  <% if current_user.id == @listing.user_id %>
+    <%= link_to "Edit Listing", edit_des_path%>
+  <% end %>
 <% end %>
 <br>
 

@@ -3,5 +3,5 @@ class Listing < ApplicationRecord
   belongs_to :collection
   validates :title, :collection_id, presence: true
   has_one_attached :picture
-  has_many :orders
+  has_many :orders, dependent: :delete_all
 end
