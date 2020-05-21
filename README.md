@@ -1,26 +1,42 @@
-# MillionaireMart
+# firesale
 
 Deployed link (heroku):  https://millionairemart.herokuapp.com/ <br>
 Github link: https://github.com/yeddyfit/marketplace-project
 <br>
 
-### Purpose
-Some people have too much money, and don't know what to spend it on. There are many marketplaces out there on the internet, but not a huge amount that advance blatant anti-frugality. This is a place that brings together those with too much money, with those who want to make money. Think of it like a bank, except something turns up at your door that next week. <br>
-Like 7/11 but for millionaires. NOTE: MillionaireMART is different to billionaireMART. 
+### What is the problem MillionaireMart is trying to solve?
 
-<br>
-NOTE: need to identify WHY it is a problem that needs solving. 
+
+Wealth disparity is very real, and for those that are on the higher end of that wealth distribution, an item that may seem needlessly expesnive for the average person, may seem extremely afforable. This coupled with a culture that encourages impulse purchasing, means that there is a real market for selling interesting but expensive items that otherwise would be hard to purchase or source elsewhere on the internet.
+
+Most stores have sales or discounts (physical and online) because they have an excess of stock that they want to get rid of. Whether it be because it's out of season, isn't selling, or mistaken stock ordering decisions – it doesn't matter. For some reason they wan to get rid of some of their stock, so they discount it. The problem is that due to the wealth of commerce businesses that surround  
+
+The term fire sale originates as a term given to items that are being discounted due to fire damage. These days it is used in reference to heavily discounted items. This is where the name Fire/Sale/Shop comes from. It is intended as an aggregate storefront for a wide range of stores to list heavily discounted goods to a consumer base that are expecting discounted items. It is intended to be a shop where only 
+
+### Why is it a problem that needs solving?
+There is inefficient management of stock suprluses. There is currently no real marketplace that deals exclsively with discounted goods, coupled with a wealth of competing businesses. This means that there is no one place where a buyer can go to see an aggregate of buOne way that small businesses can compete with efficient global companies, is through There is no dedicated storefront for allowing businesses to list those goods that they're trying to get rid of. 
+
+Take a person looking for music pedals. Store owners, especially those with physical storefronts that need to maintain a stocked storefront with a range of products, constantly take risks with the inventory they choose to hold/purchase.  
+
 
 <br>
 
 ### User Stories
-- A user can create an account, which saves their address and email. 
-- A user with an account can create collections, and delete or edit those collections which they has created.
-- A user with an account can create listings, with a price, title and description, that belong to a collection. The user can edit/delete listings that he/she have created. 
-- A user can view all collections and listings that have been posted. However only those who have created an account can purchase the items. 
-- A user with an account can view everything he/she have purchased (orders).
+- As a user I can create an account, which saves my address and email. I want this information to be kept safe from others. 
+- As a user I want to be able to login/logout, as well as edit my accounts details.
+- As a user without an account, I want to be able to view collections and listings.
+- As a user I want to be able to view all listings within collections, or view all without category filtering.
+- As a user with an account I want to be able to create collections, and delete or edit those collections which I've created.
+- As a user with an account I want to be able to create listings that belong to a collection, that have a price, title and description.
+- As a user with an account I want to be able to edit/delete listings that I've created. 
+- As a user can view listings with collections/categories, or they can see all listings at once.
+- As a user with an account I want to be able to purchase listed items in a safe way. 
+- As a user with an account I want to be able to view all successful orders that I've purchased.
 
 <br>
+
+
+
 
 ### Wireframes and ERD
 ![Home page mockup](../docs/marketplace_wireframes/New%20Wireframe%201.png)
@@ -30,17 +46,26 @@ NOTE: need to identify WHY it is a problem that needs solving.
 ![Listing page mockup](../docs/marketplace_wireframes/New%20Wireframe%205.png)
 ![About page mockup](../docs/marketplace_wireframes/New%20Wireframe%206.png)
 
-
 <br>
 
 ### App Description
 ##### Purpose
+MillionaireMart is a two-way marketplace, for those with very high disposable incomes. It aims to provide interesting but rare products and service listings that to most would seem needlessly expensive. The purpose of this app is twofold: to allow users to create an account by which they can create listings that belong to a collection, or buy other user's listings.  
 
-<br>
+The purpose of this app is to provide a two way marketplaces, that brings together the discounts/sales of established businesses, and customers looking for discounts. It aims to help local businesses compete on a more global front, and dampen the impact of stock inefficiences by offering a plcae to sell discounted products to a consumer base that expect as such.
 
 ##### Functionality/features
-
+MillionaireMart has the following features:
+- Users can create an account, using the gem devise, which ensures the safe handling of provided user information. This account holds profile information that helps with smooth handling of purchases.
+- Profile information can be edited post-creation, as well as deleted. 
+- Those users with accounts can purchase others listings, or create their own listings to sell. These listings can have: a tile, description, image, and price. 
+- Users can create collections, that have: a title, description and image. Listings can then be added to these collections.
+- These listings and collections have set user scope, so that only those who created the listing/collection can edit or delete them. 
+- Users can view collections and listings despite not having an account.
+- The website handles secure purchasing of items through stripe if an account has been created.
+- Users can track completed orders they've made.
 <br>
+
 
 ##### Sitemap
 ![Sitemap](../docs/millionaireMart%20Sitemap.jpeg)
@@ -51,18 +76,34 @@ NOTE: need to identify WHY it is a problem that needs solving.
 <br>
 
 ##### Target Audience
-The target audience is for millionaires, or those with money they want to burn. It is for those users who want to make interesting expesnive purchases that they wouldn't normally see. Like a wish, but its useless expesnive stuff instead of cheap. 
+The target audience is for those with very high disposable incomes/wealth, that are prone to impulse purchasing interesting and unique products/services.
 <br>
 
 ##### Tech Stack
-The tech stack employed includes: Ruby on Rails, and associated (Ruby, ERB, HTML and CSS).<br>
-bootstrap; devise; heroku; github; AWS (S3 and Iam). Postgresql.
+The actual app utilises the following stack:
+- Ruby 2.7.0, with gems: Devise, Ultrahook, Stripe, and aws-sdk-s3
+- Ruby on Rails
+- HTML
+- CSS/SCSS, and bootstrap
+- PostgreSQL
+- Javascript
+- Amazon S3
+- Heroku
+- Stripe
 
+These tools were also used to help with creating the app:
+- DBeaver
+- Balsamiq
+- VS Code
+- Github
+- Trello
+- LucidChart
 <br>
-<br>
-
 
 ### Components
+MVC; rails; two-sided marketplace.
+Postgresql data sanitisation.
+Devise, and dependent site functionality; proper handling of sensitive information.
 
 
 
@@ -73,9 +114,26 @@ bootstrap; devise; heroku; github; AWS (S3 and Iam). Postgresql.
 
 
 #### Task Management Process
+Once I'd figured out the idea I was going with, I set out some basic user stories to determine the basic functionality I wanted the app to have. From here I set up a trello board employing a very basic kanban setup, seperating tasks into to-do, in-progress, completed and potential-task categories. This was checked next to the task requirements to ensure all requirements were met. This setup in progress can be seen in the image below. 
+
+![Trello Screenshot](../docs/marketplace_trello_board.png)
+
+From there I set out the model I was going to go with, using the website `lucidCharts.com`.
+Then very basic wireframes were designed for both web and mobile views, using the application `balsamiq`. The outcomes of both these processes have been provided in sections that can be seen above. 
+
+
 
 ### Third Party Services
+MillionaireMart relies on the following third party services:
 
+- *Amazon S3* for cloud-based listing/collection photo storage.
+- The gem *Devise* for user authentication. This gem ensures sesnitive data is protection, whicle also providing inbuilt functions to help make the process of user management easier across the application.
+- *Stripe* and its associated gem for payment handling, which ensures that paymenst are conducted in a safe and secure way.
+- *Bootstrap* is a CSS Framework that helps to make styling a smoother and easier process. 
+- *Heroku* for app deployment
+- *Ultrahook* and its associated gem for managing stripe payment success calls
+- *Faker* gem for generating fake data for use in the seed file.
+- 
 
 
 
