@@ -5,12 +5,11 @@ Github link: https://github.com/yeddyfit/marketplace-project
 <br>
 
 ### What is the problem MillionaireMart is trying to solve?
-Wealth disparity is very real, and for those that are at the higher end of that wealth distribution, an item that may seem needlessly expensive for the average person, may seem extremely afforable. This coupled with a culture that encourages impulse purchasing, means that there is a real market for selling interesting but expensive items that otherwise would be hard to purchase or source elsewhere on the internet. This is where MillionaireMart steps in. It is place where those with lots of money can easily spend lots of money. 
+Wealth disparity is very real, and for those that are at the higher end of that wealth distribution, an item that may seem needlessly expensive for the average person, may seem extremely afforable. This coupled with a culture that encourages impulse purchasing, means that there is a real market for selling interesting but expensive items that otherwise would be hard to purchase or source elsewhere on the internet. This is where MillionaireMart steps in. It is place where those with lots of money can easily spend lots of money, while also encouraging creative products and services to be listed by people looking to make money.
 
 
 ### Why is it a problem that needs solving?
-Some people have very high disposable income, and not a whole lot to spend it on. Not everyone wants to pass all their wealth onto their kids, some people want to spend it. There is an increasing trend amongst older generations, where they are more inclined to want to spend some of their life savings savings rather than just passing it on. This is especially relevant in these current COVID-19 times that we're in, where governements want us to spend to avoid economic collapse. That is why we need places for people to spend money easily. 
-
+Some people have very high disposable income, and not a whole lot to spend it on. Not everyone wants to pass all their wealth onto their kids, some people want to spend it. There is an increasing trend amongst older generations, where they are more inclined to want to spend some of their life savings savings rather than just passing it on. This is especially relevant in these current COVID-19 times that we're in, where governements want us to spend to help avoid economic collapse. That is why we need places for people to spend money easily. 
 
 <br>
 
@@ -29,23 +28,19 @@ Some people have very high disposable income, and not a whole lot to spend it on
 <br>
 
 
-
-
 ### Wireframes and ERD
-![Home page mockup](../docs/marketplace_wireframes/New%20Wireframe%201.png)
-![Collections page mockup](../docs/marketplace_wireframes/New%20Wireframe%202.png)
-![Collection page mockup](../docs/marketplace_wireframes/New%20Wireframe%203.png)
-![Listings page mockup](../docs/marketplace_wireframes/New%20Wireframe%204.png)
-![Listing page mockup](../docs/marketplace_wireframes/New%20Wireframe%205.png)
-![About page mockup](../docs/marketplace_wireframes/New%20Wireframe%206.png)
+![Home page mockup](./docs/marketplace_wireframes/New%20Wireframe%201.png)
+![Collections page mockup](./docs/marketplace_wireframes/New%20Wireframe%202.png)
+![Collection page mockup](./docs/marketplace_wireframes/New%20Wireframe%203.png)
+![Listings page mockup](./docs/marketplace_wireframes/New%20Wireframe%204.png)
+![Listing page mockup](./docs/marketplace_wireframes/New%20Wireframe%205.png)
+![About page mockup](./docs/marketplace_wireframes/New%20Wireframe%206.png)
 
 <br>
 
 ### App Description
 ##### Purpose
-MillionaireMart is a two-way marketplace, for those with very high disposable incomes. It aims to provide interesting but rare products and service listings that to most would seem needlessly expensive. The purpose of this app is twofold: to allow users to create an account by which they can create listings that belong to a collection, or buy other user's listings.  
-
-The purpose of this app is to provide a two way marketplaces, that brings together the discounts/sales of established businesses, and customers looking for discounts. It aims to help local businesses compete on a more global front, and dampen the impact of stock inefficiences by offering a plcae to sell discounted products to a consumer base that expect as such.
+MillionaireMart is a two-way marketplace, for those with high disposable incomes. It aims to provide a platform for users to buy/sell interesting but rare products and service that to most would seem needlessly expensive. The purpose of this app is twofold: to allow users to create an account by which they can create listings that belong to a collection, or buy other user's listings.  
 
 ##### Functionality/features
 MillionaireMart has the following features:
@@ -61,20 +56,20 @@ MillionaireMart has the following features:
 
 
 ##### Sitemap
-![Sitemap](../docs/millionaireMart%20Sitemap.jpeg)
+![Sitemap](./docs/millionaireMart%20Sitemap.jpeg)
 <br>
 
 ##### Screenshots
 Home
-![Screenshot1](../docs/screenshots/screenshot1.png)
+![Screenshot1](./docs/screenshots/screenshot1.png)
 Collections Page
-![Screenshot2](../docs/screenshots/screenshot2.png)
+![Screenshot2](./docs/screenshots/screenshot2.png)
 Listing page
-![Screenshot3](../docs/screenshots/screenshot3.png)
+![Screenshot3](./docs/screenshots/screenshot3.png)
 Collection Page
-![Screenshot5](../docs/screenshots/screenshot5.png)
+![Screenshot5](./docs/screenshots/screenshot5.png)
 About/Contact Page
-![Screenshot4](../docs/screenshots/screenshot4.png)
+![Screenshot4](./docs/screenshots/screenshot4.png)
 <br>
 
 ##### Target Audience
@@ -103,15 +98,19 @@ These tools were also used to help with creating the app:
 <br>
 
 ### Components
-MVC; rails; two-sided marketplace.
-Postgresql data sanitisation.
-Devise, and dependent site functionality; proper handling of sensitive information.
+Authentication is done through a gem called Devise. This ensures user data (eg. password) is properly secured (encrypted in the case of passwords) and sanitised.
 
-Devise 
+Rails utilises a framework known as *MVC* standing for Model View Controller. This means that this application, seperates functioning into these three distinct areas.
+The first is the Model which deals with any logic associated with the database. It is where relations between tables are defined. <br>
+The second is the View whcih deals with how the information is displayed to the user, with each page having its own views. <br>
+Finally, we come to the Controller which is the bridge between these twocomponents. 
+The controller is in charge of any logic that is to be done for the app to function correctly.<br>
+Routes make all of this possible by directing where information should be sent and handled, it tells the controller how to respond to different requests. 
+<br>
 
 #### Model/DB Relationships
 ##### DB Schema Design
-![ERD](../docs/marketplace_ERD.png)
+![ERD](./docs/marketplace_ERD.png)
 <br>
 
 MillionaireMart utilises PostgreSQL for its database management, and has four tables that it employs within this database. These tables are: users; collections; listings; and orders. <br>
@@ -121,14 +120,17 @@ The active record associations/relationships between said tables are set up in t
 - A *listing* `belongs_to` a user and collection. It also `has_many` orders, which are `dependent: :delete_all` meaning orders get deleted when listings are deleted.
 - A *collection* `belongs_to` a user; and has_many listings, which are `dependent: :delete_all` meaning listings in the categories get deleted when collections are deleted.
 - An *order* `belongs_to` a user and a listing.
+<br>
 
+These relations are linked through the use of foreign keys, which reference primary keys from other tables. This directly links the tables, and allows for logic relational logic throughout your app such as `User.collections`. <br>
 
-
+Amazon S3 is also utilised to add and store images, where both listing and collection can have one attached image. 
+<br>
 
 #### Task Management Process
 Once I'd figured out the idea I was going with, I set out some basic user stories to determine the basic functionality I wanted the app to have. From here I set up a trello board employing a very basic kanban setup, seperating tasks into to-do, in-progress, completed and potential-task categories. This was checked next to the task requirements to ensure all requirements were met. This setup in progress can be seen in the image below. 
 
-![Trello Screenshot](../docs/marketplace_trello_board.png)
+![Trello Screenshot](./docs/marketplace_trello_board.png)
 
 From there I set out the model I was going to go with, using the website `lucidCharts.com`.
 Then very basic wireframes were designed for both web and mobile views, using the application `balsamiq`. The outcomes of both these processes have been provided in sections that can be seen above. 
@@ -145,7 +147,6 @@ MillionaireMart relies on the following third party services:
 - *Heroku* for app deployment
 - *Ultrahook* and its associated gem for managing stripe payment success calls
 - *Faker* gem for generating fake data for use in the seed file.
-- 
 
 
 

@@ -10,6 +10,11 @@
         <%= form.text_area :description, value: listing.description %>
     </div>
     <div>
+        <%= form.label :price %>
+        <br>
+        <%= form.number_field :price, value: listing.price, min: 0 %>
+    </div>
+    <div>
         <%= form.label :collection_id %>
         <%= form.select(:collection_id, options_for_select(collections.map{|c| [c.title, c.id]}, listing.collection_id)) %>
     </div>

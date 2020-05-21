@@ -53,7 +53,13 @@ class CollectionsController < ApplicationController
   end
 
   def destroy
+    for i in Collection.find(params[:id]).listings
+      if i.orders
+        i.orders.destroy
+      end
+    end
     Collection.find(params[:id]).destroy
+    
     redirect_to collections_path
   end
 

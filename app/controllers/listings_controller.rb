@@ -78,6 +78,7 @@ class ListingsController < ApplicationController
 
   def destroy
     @listing = current_user.listings.find_by_id(params["id"])
+    @orders = current_user.listings.orders.find_by_id(params["id"])
     if @listing
         @listing.destroy
     end
