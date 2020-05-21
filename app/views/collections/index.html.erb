@@ -10,7 +10,7 @@
       <% for collection in @collections %>
         <div class="col-md-4">
           <div class="card mb-4 box-shadow bg-dark">
-            <a href="<%= desi_path(listing.id) %>">
+            <a href="<%= collection_path(collection.id) %>">
               <% if collection.picture.attached? %>
                 <%= image_tag collection.picture, class: "card-img-top" %>
               <% else %>

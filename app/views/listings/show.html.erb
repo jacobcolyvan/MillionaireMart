@@ -17,7 +17,7 @@
 
 <% if current_user %>
   
-  <button data-stripe="payment">Pay Deposit <%= number_to_currency(price) %></button>
+  <button data-stripe="payment">Buy Now <%= number_to_currency(price) %></button>
   <script src="https://js.stripe.com/v3/"></script>
 
   <script>
