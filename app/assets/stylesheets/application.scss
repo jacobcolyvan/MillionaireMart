@@ -20,6 +20,10 @@ ul, li {
   display: block;
 }
 
+.formBox {
+  display: inline-block;
+}
+
 
 @media all and (max-width: 800px) {
   .homeImage {

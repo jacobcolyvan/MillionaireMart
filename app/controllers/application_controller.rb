@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
 
   protected
+    # Adds name and address as available devise parameters
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password, :address)}
 

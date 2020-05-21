@@ -1,10 +1,12 @@
 <%= form_with model: listing, local: true do |form| %>
     <div>
         <%= form.label :title %>
+        <br>
         <%= form.text_field :title, value: listing.title %>
     </div>
     <div>
         <%= form.label :description %>
+        <br>
         <%= form.text_area :description, value: listing.description %>
     </div>
     <div>
@@ -12,9 +14,12 @@
         <%= form.select(:collection_id, options_for_select(collections.map{|c| [c.title, c.id]}, listing.collection_id)) %>
     </div>
     <div>
-        <%= form.label :picture %> <%= form.file_field :picture, accept:
+        <%= form.label :picture %> 
+        <br>
+        <%= form.file_field :picture, accept:
         'image/png,image/gif,image/jpeg,image/jpg' %>
     </div>
+    <br>
     <div>
         <%= form.submit %>
     </div>

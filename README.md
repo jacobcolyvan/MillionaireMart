@@ -72,7 +72,7 @@ Collections Page
 Listing page
 ![Screenshot3](../docs/screenshots/screenshot3.png)
 Collection Page
-![Screenshot3](../docs/screenshots/screenshot5.png)
+![Screenshot5](../docs/screenshots/screenshot5.png)
 About/Contact Page
 ![Screenshot4](../docs/screenshots/screenshot4.png)
 <br>
@@ -117,9 +117,9 @@ Devise
 MillionaireMart utilises PostgreSQL for its database management, and has four tables that it employs within this database. These tables are: users; collections; listings; and orders. <br>
 
 The active record associations/relationships between said tables are set up in the following way:
-- A *user* `has_many` listings, collections, and orders.
-- A *listing* `belongs_to` a user and collection. It also has_many orders.
-- A *collection* `belongs_to` a user; and has_many listings.
+- A *user* `has_many` listings, collections, and orders, which arte all`dependent: :delete_all` meaning they get deleted when users are deleted.
+- A *listing* `belongs_to` a user and collection. It also `has_many` orders, which are `dependent: :delete_all` meaning orders get deleted when listings are deleted.
+- A *collection* `belongs_to` a user; and has_many listings, which are `dependent: :delete_all` meaning listings in the categories get deleted when collections are deleted.
 - An *order* `belongs_to` a user and a listing.
 
 
