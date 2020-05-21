@@ -7,11 +7,8 @@ Github link: https://github.com/yeddyfit/marketplace-project
 ### What is the problem MillionaireMart is trying to solve?
 
 
-Wealth disparity is very real, and for those that are on the higher end of that wealth distribution, an item that may seem needlessly expesnive for the average person, may seem extremely afforable. This coupled with a culture that encourages impulse purchasing, means that there is a real market for selling interesting but expensive items that otherwise would be hard to purchase or source elsewhere on the internet.
+Wealth disparity is very real, and for those that are at the higher end of that wealth distribution, an item that seems needlessly expensive for the average person, may seem extremely afforable. This coupled with a culture that encourages impulse purchasing, means that there is a real market for selling interesting but expensive items that otherwise would be hard to purchase or source elsewhere on the internet. This is where MillionaireMart steps in. 
 
-Most stores have sales or discounts (physical and online) because they have an excess of stock that they want to get rid of. Whether it be because it's out of season, isn't selling, or mistaken stock ordering decisions – it doesn't matter. For some reason they wan to get rid of some of their stock, so they discount it. The problem is that due to the wealth of commerce businesses that surround  
-
-The term fire sale originates as a term given to items that are being discounted due to fire damage. These days it is used in reference to heavily discounted items. This is where the name Fire/Sale/Shop comes from. It is intended as an aggregate storefront for a wide range of stores to list heavily discounted goods to a consumer base that are expecting discounted items. It is intended to be a shop where only 
 
 ### Why is it a problem that needs solving?
 There is inefficient management of stock suprluses. There is currently no real marketplace that deals exclsively with discounted goods, coupled with a wealth of competing businesses. This means that there is no one place where a buyer can go to see an aggregate of buOne way that small businesses can compete with efficient global companies, is through There is no dedicated storefront for allowing businesses to list those goods that they're trying to get rid of. 
@@ -72,7 +69,16 @@ MillionaireMart has the following features:
 <br>
 
 ##### Screenshots
-
+Home
+![Screenshot1](../docs/screenshots/screenshot1.png)
+Collections Page
+![Screenshot2](../docs/screenshots/screenshot2.png)
+Listing page
+![Screenshot3](../docs/screenshots/screenshot3.png)
+Collection Page
+![Screenshot3](../docs/screenshots/screenshot5.png)
+About/Contact Page
+![Screenshot4](../docs/screenshots/screenshot4.png)
 <br>
 
 ##### Target Audience
@@ -105,12 +111,22 @@ MVC; rails; two-sided marketplace.
 Postgresql data sanitisation.
 Devise, and dependent site functionality; proper handling of sensitive information.
 
-
+Devise 
 
 #### Model/DB Relationships
 ##### DB Schema Design
-![ERD](../docs/marketplace_ERD.jpeg)
+![ERD](../docs/marketplace_ERD.png)
 <br>
+
+MillionaireMart utilises PostgreSQL for its database management, and has four tables that it employs within this database. These tables are: users; collections; listings; and orders. <br>
+
+The active record associations/relationships between said tables are set up in the following way:
+- A *user* `has_many` listings, collections, and orders.
+- A *listing* `belongs_to` a user and collection. It also has_many orders.
+- A *collection* `belongs_to` a user; and has_many listings.
+- An *order* `belongs_to` a user and a listing.
+
+
 
 
 #### Task Management Process

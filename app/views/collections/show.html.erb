@@ -24,8 +24,7 @@
               <% end %>
             </a>
             
-            <%= link_to "#{listing.title}", desi_path(listing.id) %>
-            <p class="card-text bg-dark"><%= listing.description %></p>
+            <p class="card-text bg-dark"><%= link_to "#{listing.title}", desi_path(listing.id) %>    |    $<%= listing.price %></p>
             <% if current_user && current_user.id == listing.user_id %>
               <div class="bg-dark">
                 <%= form_with model: listing, local: true, method: "delete", class: "bg-dark" do |form| %>
