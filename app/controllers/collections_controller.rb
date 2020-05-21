@@ -1,9 +1,9 @@
 class CollectionsController < ApplicationController
-  # before_action :authenticate_user!
   before_action :set_user_collection, only: [:edit, :update, :destroy]
   before_action :set_collection, only: [:show]
 
   def index 
+    # Code so that collections are sorted by their time of creation
     @collections = Collection.all.sort_by(&:created_at)
   end
 
@@ -13,6 +13,7 @@ class CollectionsController < ApplicationController
 
   def create
     @collection = current_user.collections.create(collection_params)
+    # Ensures there are no errors when creating new collection
     if @collection.errors.any?
       render "new"
     else 
@@ -21,13 +22,14 @@ class CollectionsController < ApplicationController
   end
 
   def show
+    # Sets relevant collections and listings
     @collection = Collection.find(params["id"])
     @listings = @collection.listings
   end
 
   def edit
     @collection = current_user.collections.find_by_id(params["id"])
-
+    # Renders edit if collection matches db
     if @collection 
         render("edit")
     else
@@ -37,7 +39,7 @@ class CollectionsController < ApplicationController
 
   def update
     @collection = current_user.collections.find_by_id(params["id"])
-
+    # Updates Collection if collection matches db, and there are no errors
     if @collection 
         @collection.update(collection_params)
         if @collection.errors.any?
@@ -57,15 +59,17 @@ class CollectionsController < ApplicationController
 
   private
   def collection_params
-    # TODO: add require picture
-      params.require(:collection).permit(:title, :description, :picture)
+    # Sanitises collection parameters
+    params.require(:collection).permit(:title, :description, :picture)
   end
 
   def set_collection
+    # Finds the relevant collection by searching
     @collection = Collection.find(params[:id])
   end
 
   def set_user_collection
+    # Finds the relevant user's collection
     id = params[:id]
     @collection = current_user.collections.find_by_id(id) if current_user
   

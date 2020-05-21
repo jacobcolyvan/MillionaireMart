@@ -3,13 +3,13 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show]
 
   def index
-    # sorts listings and makes them available to index view
+    # Sorts listings and makes them available to index view
     @listings = Listing.all.sort_by(&:created_at)
   end
 
   def show 
     @listing = Listing.find(params["id"])
-
+    # Sets up stripe logic if user is logged in
     if current_user
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
@@ -41,6 +41,7 @@ class ListingsController < ApplicationController
 
   def create
     @listing = current_user.listings.create(listing_params)
+    # Ensures there are no errors when creating new collection
     if @listing.errors.any?
       render "new"
     else 
@@ -49,9 +50,10 @@ class ListingsController < ApplicationController
   end
 
   def edit
+    # Makes collections available for select input in the edit view
     set_collections
     @listing = current_user.listings.find_by_id(params["id"])
-
+    # Ensures there are no errors when creating new collection
     if @listing 
         render("edit")
     else
@@ -61,7 +63,7 @@ class ListingsController < ApplicationController
 
   def update
     @listing = current_user.listings.find_by_id(params["id"])
-
+    # Updates listing if collection matches db, and there are no errors
     if @listing 
         @listing.update(listing_params)
         if @listing.errors.any?
@@ -76,7 +78,6 @@ class ListingsController < ApplicationController
 
   def destroy
     @listing = current_user.listings.find_by_id(params["id"])
-
     if @listing
         @listing.destroy
     end
@@ -85,7 +86,8 @@ class ListingsController < ApplicationController
 
   private
   def listing_params
-      params.require(:listing).permit(:title, :description, :collection_id, :picture, :price)
+    # Sanitises listing params
+    params.require(:listing).permit(:title, :description, :collection_id, :picture, :price)
   end  
 
   def set_collections
@@ -96,7 +98,8 @@ class ListingsController < ApplicationController
     @listing= Listing.find(params[:id])
   end
 
-  def set_user_listing    
+  def set_user_listing   
+    # Sets listings that belong to users if logged in
     id = params[:id]
     @listing = current_user.listings.find_by_id(id) if current_user
   

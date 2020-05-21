@@ -1,19 +1,15 @@
-# firesale
+# MillionaireMart
 
 Deployed link (heroku):  https://millionairemart.herokuapp.com/ <br>
 Github link: https://github.com/yeddyfit/marketplace-project
 <br>
 
 ### What is the problem MillionaireMart is trying to solve?
-
-
-Wealth disparity is very real, and for those that are at the higher end of that wealth distribution, an item that seems needlessly expensive for the average person, may seem extremely afforable. This coupled with a culture that encourages impulse purchasing, means that there is a real market for selling interesting but expensive items that otherwise would be hard to purchase or source elsewhere on the internet. This is where MillionaireMart steps in. 
+Wealth disparity is very real, and for those that are at the higher end of that wealth distribution, an item that may seem needlessly expensive for the average person, may seem extremely afforable. This coupled with a culture that encourages impulse purchasing, means that there is a real market for selling interesting but expensive items that otherwise would be hard to purchase or source elsewhere on the internet. This is where MillionaireMart steps in. It is place where those with lots of money can easily spend lots of money. 
 
 
 ### Why is it a problem that needs solving?
-There is inefficient management of stock suprluses. There is currently no real marketplace that deals exclsively with discounted goods, coupled with a wealth of competing businesses. This means that there is no one place where a buyer can go to see an aggregate of buOne way that small businesses can compete with efficient global companies, is through There is no dedicated storefront for allowing businesses to list those goods that they're trying to get rid of. 
-
-Take a person looking for music pedals. Store owners, especially those with physical storefronts that need to maintain a stocked storefront with a range of products, constantly take risks with the inventory they choose to hold/purchase.  
+Some people have very high disposable income, and not a whole lot to spend it on. Not everyone wants to pass all their wealth onto their kids, some people want to spend it. There is an increasing trend amongst older generations, where they are more inclined to want to spend some of their life savings savings rather than just passing it on. This is especially relevant in these current COVID-19 times that we're in, where governements want us to spend to avoid economic collapse. That is why we need places for people to spend money easily. 
 
 
 <br>
