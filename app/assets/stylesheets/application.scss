@@ -14,7 +14,8 @@ ul, li {
 }
  
 .homeImage {
-  max-width: 70%;
+  // max-width: 70%;
+  width: 65%;
 }
 .navLink {
   display: block;
@@ -111,11 +112,21 @@ ul, li {
 }
 
 
-@media all and (max-width: 800px) {
+
+@media all and (max-width: 1200px) {
   .homeImage {
-    max-width: 95%;
+    width: 95%;
   }
 
+  #main {
+    margin-left: 0;
+  }
+}
+
+@media all and (max-width: 992px) {
+  #main {
+    margin: 0;
+  }
 }
 
 
