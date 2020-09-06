@@ -1,31 +1,33 @@
 <%= form_with model: listing, local: true do |form| %>
-    <div>
-        <%= form.label :title %>
+    <div class='sign-up-form container'>
+        <div class='field'>
+            <%= form.label :title %>
+            <br>
+            <%= form.text_field :title, value: listing.title %>
+        </div>
+        <div class='field'>
+            <%= form.label :description %>
+            <br>
+            <%= form.text_area :description, value: listing.description %>
+        </div>
+        <div class='field'>
+            <%= form.label :price %>
+            <br>
+            <%= form.number_field :price, value: listing.price, min: 0 %>
+        </div>
+        <div class='field'>
+            <%= form.label :collection_id %>
+            <%= form.select(:collection_id, options_for_select(collections.map{|c| [c.title, c.id]}, listing.collection_id)) %>
+        </div>
+        <div class='field'>
+            <%= form.label :picture %> 
+            <br>
+            <%= form.file_field :picture, accept:
+            'image/png,image/gif,image/jpeg,image/jpg' %>
+        </div>
         <br>
-        <%= form.text_field :title, value: listing.title %>
-    </div>
-    <div>
-        <%= form.label :description %>
-        <br>
-        <%= form.text_area :description, value: listing.description %>
-    </div>
-    <div>
-        <%= form.label :price %>
-        <br>
-        <%= form.number_field :price, value: listing.price, min: 0 %>
-    </div>
-    <div>
-        <%= form.label :collection_id %>
-        <%= form.select(:collection_id, options_for_select(collections.map{|c| [c.title, c.id]}, listing.collection_id)) %>
-    </div>
-    <div>
-        <%= form.label :picture %> 
-        <br>
-        <%= form.file_field :picture, accept:
-        'image/png,image/gif,image/jpeg,image/jpg' %>
-    </div>
-    <br>
-    <div>
-        <%= form.submit %>
+        <div class='actions'>
+            <%= form.submit %>
+        </div>
     </div>
 <% end %>

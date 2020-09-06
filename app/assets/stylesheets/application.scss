@@ -25,15 +25,12 @@ ul, li {
 }
 
 
+
+
 .sign-up-form {
-  // background-color:white;
-  // width: 100%;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  // margin: 20px 20%;
-  // border: 1px solid white;
-
 }
 
 .field * {
@@ -49,12 +46,21 @@ ul, li {
   background-color: white;
   border: 1px solid white;
   color: black;
-  padding: 4px 8px;
+  padding: 4px 4px;
+}
+
+.sign-up-form select, .sign-up-form textarea {
+  background-color: white;
+  border: 1px solid white;
+  color: black;
+  padding: 4px 4px;
 }
 
 .actions input {
   width: 100%;
   border: 1px solid white;
+  color: white;
+  background-color: #333B3F;
   cursor: pointer;
 }
 
@@ -85,7 +91,6 @@ ul, li {
   flex-direction: row;
   width: 100%;
   align-content: flex-end;
-  
 }
 
 
