@@ -25,10 +25,76 @@ ul, li {
 }
 
 
+.sign-up-form {
+  // background-color:white;
+  // width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  // margin: 20px 20%;
+  // border: 1px solid white;
+
+}
+
+.field * {
+  text-align: left;
+  width: 100%;
+}
+
+.field label {
+ margin: 16px 0 2px 0;
+}
+
+.sign-up-form input {
+  background-color: white;
+  border: 1px solid white;
+  color: black;
+  padding: 4px 8px;
+}
+
+.actions input {
+  width: 100%;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+#password-confirm label {
+  margin: 2px 0 2px 0;
+}
+
+#remember-me-select * {
+  width: auto;
+}
+
+#remember-me-select label {
+  margin-left: 8px;
+  display: inline-block;
+  align-self: flex-end;
+}
+
+#remember-me-select input {
+  display: inline-block;
+  align-self: flex-end;
+  margin-bottom: 8px;
+}
+
+
+#remember-me-select{
+  margin: 16px 0 2px 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-content: flex-end;
+  
+}
+
+
 @media all and (max-width: 800px) {
   .homeImage {
     max-width: 95%;
   }
+
 }
+
 
 
