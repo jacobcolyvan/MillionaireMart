@@ -4,7 +4,7 @@
   </button>
 
   <div class="collapse navbar-collapse bg-dark" id="navbarColor01">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto ">
       <li class="nav-item bg-dark">
         <%= link_to "Home", root_path, class:"nav-link" %>
       </li>
@@ -18,7 +18,7 @@
         <%= link_to "About/Contact", about_path, class: "nav-link" %>
       </li>
     </ul>
-    <form class="form-inline bg-dark">
+    <form class="form-inline bg-dark ">
       <% if user_signed_in? %>
         <%= link_to "Log Out", destroy_user_session_path, class:"btn btn-outline-primary my-2 my-sm-0", :method => :delete %>
         <%= link_to 'Edit Profile', edit_user_registration_path, class:"btn btn-outline-primary my-2 my-sm-0" %>
@@ -26,5 +26,6 @@
         <%= link_to("Sign In", new_user_session_path, class:"btn btn-outline-primary my-2 my-sm-0" ) %> 
       <% end %>
     </form>
+  </div>
   </div>
 </nav>

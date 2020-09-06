@@ -93,6 +93,23 @@ ul, li {
   align-content: flex-end;
 }
 
+#password-change-info, #unhappy-p {
+  width: 100%;
+  text-align: left;
+}
+
+#delete-account-button {
+  width: 100%;
+  border: 1px solid white;
+  color: white;
+  background-color: #333B3F;
+  cursor: pointer;
+}
+
+#unhappy-p {
+  margin: 16px 0 8px 0;
+}
+
 
 @media all and (max-width: 800px) {
   .homeImage {
