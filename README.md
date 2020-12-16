@@ -1,15 +1,16 @@
 # MillionaireMart
 
+<b>Note</b>: this is the end result of a project I completed for Coder Academy back in June 2020. 
+
 Deployed link (heroku):  https://millionairemart.herokuapp.com/ <br>
-Github link: https://github.com/yeddyfit/marketplace-project
 <br>
 
 ### What is the problem MillionaireMart is trying to solve?
-Wealth disparity is very real, and for those that are at the higher end of that wealth distribution, an item that may seem needlessly expensive for the average person, may seem extremely afforable. This coupled with a culture that encourages impulse purchasing, means that there is a real market for selling interesting but expensive items that otherwise would be hard to purchase or source elsewhere on the internet. This is where MillionaireMart steps in. It is place where those with lots of money can easily spend lots of money, while also encouraging creative products and services to be listed by people looking to make money.
+Wealth disparity is very real, one man's fortune is another's change. There is a real market for selling interesting but expensive items that otherwise would be hard to purchase or source elsewhere on the internet. This is where MillionaireMart steps in. It is place where those with lots of money can easily spend lots of money, while also encouraging creative products and services to be listed by people looking to make money.
 
 
 ### Why is it a problem that needs solving?
-Some people have very high disposable income, and not a whole lot to spend it on. Not everyone wants to pass all their wealth onto their kids, some people want to spend it. There is an increasing trend amongst older generations, where they are more inclined to want to spend some of their life savings savings rather than just passing it on. This is especially relevant in these current COVID-19 times that we're in, where governements want us to spend to help avoid economic collapse. That is why we need places for people to spend money easily. 
+Some people have very high disposable income, and not a whole lot to spend it on.
 
 <br>
 
