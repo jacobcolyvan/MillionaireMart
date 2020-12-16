@@ -1,9 +1,10 @@
 # MillionaireMart
 
-<b>Note</b>: this is the end result of a project I completed for Coder Academy back in June 2020. 
+<b>Note</b>: this is the end result of a project I completed for Coder Academy back in June 2020. It is essentially a mock marketplace for millionaires to make impulse purchases. Built in Ruby on Rails. The original documentation can be found below.
 
-Deployed link (heroku):  https://millionairemart.herokuapp.com/ <br>
-<br>
+Deployed link (heroku):  https://millionairemart.herokuapp.com/
+
+<hr/>
 
 ### What is the problem MillionaireMart is trying to solve?
 Wealth disparity is very real, one man's fortune is another's change. There is a real market for selling interesting but expensive items that otherwise would be hard to purchase or source elsewhere on the internet. This is where MillionaireMart steps in. It is place where those with lots of money can easily spend lots of money, while also encouraging creative products and services to be listed by people looking to make money.
